@@ -180,27 +180,27 @@ public class loginform extends javax.swing.JFrame {
               String user =un.getText();
 String pass = ps.getText();
 
-    // EMPTY FIELDS
+    
     if(user.isEmpty() || pass.isEmpty()){
         JOptionPane.showMessageDialog(this, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
         return;
     }
 
-    // CORRECT LOGIN
+   
     if(user.equals("Bavyan") && pass.equals("B123")){
         JOptionPane.showMessageDialog(this, "Login Successful!");
 
-        registerform r = new registerform(); // ⚠️ fix class name if needed
+        registerform r = new registerform();
         this.dispose();
         r.setVisible(true);
     }
 
-    // WRONG USERNAME
+   
     else if(!user.equals("Bavyan")){
         JOptionPane.showMessageDialog(this, "Wrong Username!", "Error", JOptionPane.ERROR_MESSAGE);
     }
 
-    // WRONG PASSWORD
+ 
     else{
         JOptionPane.showMessageDialog(this, "Wrong Password!", "Error", JOptionPane.ERROR_MESSAGE);
     
@@ -214,13 +214,13 @@ String pass = ps.getText();
 
 String pass = ps.getText();
 
-    // EMPTY FIELDS
+   
     if(user.isEmpty() || pass.isEmpty()){
         JOptionPane.showMessageDialog(this, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
         return;
     }
 
-    // CORRECT LOGIN
+   
     if(user.equals("Bavyan") && pass.equals("B123")){
         JOptionPane.showMessageDialog(this, "Login Successful!");
 
@@ -229,12 +229,12 @@ String pass = ps.getText();
         r.setVisible(true);
     }
 
-    // WRONG USERNAME
+  
     else if(!user.equals("Bavyan")){
         JOptionPane.showMessageDialog(this, "Wrong Username!", "Error", JOptionPane.ERROR_MESSAGE);
     }
 
-    // WRONG PASSWORD
+    
     else{
         JOptionPane.showMessageDialog(this, "Wrong Password!", "Error", JOptionPane.ERROR_MESSAGE);
     
