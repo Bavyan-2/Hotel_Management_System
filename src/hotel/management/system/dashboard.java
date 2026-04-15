@@ -18,7 +18,7 @@ public class dashboard extends javax.swing.JFrame {
     public dashboard() {
         initComponents();
         
-                        getContentPane().setBackground(new java.awt.Color(0,0,84));
+                       fpanel.setBackground(new java.awt.Color(0,0,84));
 
     }
 
@@ -36,15 +36,15 @@ public class dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         wel = new javax.swing.JLabel();
-        bmr = new javax.swing.JButton();
+        bsr = new javax.swing.JButton();
         bmg = new javax.swing.JButton();
-        bl = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
         msg2 = new javax.swing.JLabel();
+        fpanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 84));
@@ -76,16 +76,16 @@ public class dashboard extends javax.swing.JFrame {
         wel.setText("Welcom, Admin !");
         getContentPane().add(wel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 140, 30));
 
-        bmr.setBackground(new java.awt.Color(249, 246, 242));
-        bmr.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        bmr.setForeground(new java.awt.Color(0, 0, 84));
-        bmr.setText("Manage Rooms");
-        bmr.addActionListener(new java.awt.event.ActionListener() {
+        bsr.setBackground(new java.awt.Color(249, 246, 242));
+        bsr.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        bsr.setForeground(new java.awt.Color(0, 0, 84));
+        bsr.setText("Show Rooms");
+        bsr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bmrActionPerformed(evt);
+                bsrActionPerformed(evt);
             }
         });
-        getContentPane().add(bmr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        getContentPane().add(bsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 160, -1));
 
         bmg.setBackground(new java.awt.Color(249, 246, 242));
         bmg.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -96,18 +96,7 @@ public class dashboard extends javax.swing.JFrame {
                 bmgActionPerformed(evt);
             }
         });
-        getContentPane().add(bmg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-
-        bl.setBackground(new java.awt.Color(249, 246, 242));
-        bl.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        bl.setForeground(new java.awt.Color(0, 0, 84));
-        bl.setText("Back to Login");
-        bl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        getContentPane().add(bmg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(249, 246, 242));
         jPanel2.setPreferredSize(new java.awt.Dimension(260, 70));
@@ -138,10 +127,13 @@ public class dashboard extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 160, -1));
 
         msg2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         getContentPane().add(msg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 240, 30));
+
+        fpanel.setBackground(new java.awt.Color(0, 0, 84));
+        getContentPane().add(fpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,7 +146,7 @@ msg2.setForeground(Color.yellow);
 // TODO add your handling code here:
     }//GEN-LAST:event_bmgActionPerformed
 
-    private void bmrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmrActionPerformed
+    private void bsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsrActionPerformed
       
      msg2.setText("Rooms Section - Coming Soon !");
     msg2.setForeground(Color.red);
@@ -162,16 +154,7 @@ msg2.setForeground(Color.yellow);
 
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_bmrActionPerformed
-
-    private void blActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blActionPerformed
-
-loginform l = new loginform();
-this.dispose();
-l.setVisible(true);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_blActionPerformed
+    }//GEN-LAST:event_bsrActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
 System.exit(0);
@@ -216,10 +199,10 @@ System.exit(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bl;
     private javax.swing.JButton bmg;
-    private javax.swing.JButton bmr;
+    private javax.swing.JButton bsr;
     private javax.swing.JButton exit;
+    private javax.swing.JPanel fpanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

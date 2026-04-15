@@ -7,6 +7,7 @@ package hotel.management.system;
 import hotel.management.system.dashboard;
 import hotel.management.system.registerform;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +22,7 @@ public class loginform extends javax.swing.JFrame {
         initComponents();
         msg.setText("");
         
-        getContentPane().setBackground(new java.awt.Color(0,0,84));
+     fpanel.setBackground(new java.awt.Color(0,0,84));
         bl.setBackground(new java.awt.Color(0,0,51));
                 bl.setForeground(new java.awt.Color(249,246,242));
                 
@@ -53,6 +54,7 @@ public class loginform extends javax.swing.JFrame {
         bl = new javax.swing.JButton();
         br = new javax.swing.JButton();
         msg = new javax.swing.JLabel();
+        fpanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 84));
@@ -152,6 +154,21 @@ public class loginform extends javax.swing.JFrame {
         msg.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 255, 32));
 
+        fpanel.setBackground(new java.awt.Color(0, 0, 84));
+
+        javax.swing.GroupLayout fpanelLayout = new javax.swing.GroupLayout(fpanel);
+        fpanel.setLayout(fpanelLayout);
+        fpanelLayout.setHorizontalGroup(
+            fpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 550, Short.MAX_VALUE)
+        );
+        fpanelLayout.setVerticalGroup(
+            fpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(fpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 450));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -163,58 +180,66 @@ public class loginform extends javax.swing.JFrame {
               String user =un.getText();
 String pass = ps.getText();
 
-if (user.equals("") || pass.equals("")){
-         
-     msg.setText("please fill all fields !");
-         msg.setForeground(Color.red);
+    // EMPTY FIELDS
+    if(user.isEmpty() || pass.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
 
+    // CORRECT LOGIN
+    if(user.equals("Bavyan") && pass.equals("B123")){
+        JOptionPane.showMessageDialog(this, "Login Successful!");
 
-} else if (user.equals("Bavyan") && pass.equals("B123")){
- 
-     registerform r = new registerform();  
-   this.dispose();
-   r.setVisible(true); 
+        registerform r = new registerform(); // ⚠️ fix class name if needed
+        this.dispose();
+        r.setVisible(true);
+    }
 
-}else if (!user.equals("Bavyan") ){
-  
-     msg.setText("Wrong username !");
-              msg.setForeground(Color.orange);
+    // WRONG USERNAME
+    else if(!user.equals("Bavyan")){
+        JOptionPane.showMessageDialog(this, "Wrong Username!", "Error", JOptionPane.ERROR_MESSAGE);
+    }
 
+    // WRONG PASSWORD
+    else{
+        JOptionPane.showMessageDialog(this, "Wrong Password!", "Error", JOptionPane.ERROR_MESSAGE);
+    
 
- }else{ 
-     msg.setText("Wrong password !");
-              msg.setForeground(Color.yellow);
-
- 
 }
 // TODO add your handling code here:
     }//GEN-LAST:event_brActionPerformed
 
     private void blActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blActionPerformed
         String user =un.getText();
+
 String pass = ps.getText();
 
-if (user.equals("") || pass.equals("")){
+    // EMPTY FIELDS
+    if(user.isEmpty() || pass.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // CORRECT LOGIN
+    if(user.equals("Bavyan") && pass.equals("B123")){
+        JOptionPane.showMessageDialog(this, "Login Successful!");
+
+        dashboard r = new dashboard(); 
+        this.dispose();
+        r.setVisible(true);
+    }
+
+    // WRONG USERNAME
+    else if(!user.equals("Bavyan")){
+        JOptionPane.showMessageDialog(this, "Wrong Username!", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    // WRONG PASSWORD
+    else{
+        JOptionPane.showMessageDialog(this, "Wrong Password!", "Error", JOptionPane.ERROR_MESSAGE);
+    
          
-     msg.setText("please fill all fields !");
-              msg.setForeground(Color.red);
-
-
-} else if (user.equals("Bavyan") && pass.equals("B123")){
- 
-     dashboard d = new dashboard();
-     this.dispose();
-     d.setVisible(true);
-
-}else if (!user.equals("Bavyan") ){
-  
-     msg.setText("Wrong username !");
-              msg.setForeground(Color.orange);
-
-
- }else{ 
-     msg.setText("Wrong password !");
-              msg.setForeground(Color.yellow);
+    
 
 }
  
@@ -258,6 +283,7 @@ if (user.equals("") || pass.equals("")){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bl;
     private javax.swing.JButton br;
+    private javax.swing.JPanel fpanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
