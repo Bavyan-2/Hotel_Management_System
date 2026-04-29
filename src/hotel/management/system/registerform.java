@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package hotel.management.system;
-
+import javax.swing.JOptionPane;
 import java.awt.Color;
 
 /**
@@ -41,7 +41,6 @@ public class registerform extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         sub = new javax.swing.JButton();
         bk = new javax.swing.JButton();
-        msg1 = new javax.swing.JLabel();
         fpanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -57,6 +56,8 @@ public class registerform extends javax.swing.JFrame {
         male = new javax.swing.JRadioButton();
         fmale = new javax.swing.JRadioButton();
         comr = new javax.swing.JComboBox<>();
+        msg1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 84));
@@ -70,7 +71,7 @@ public class registerform extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Creat your account");
+        jLabel8.setText("Create your account");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         sub.setBackground(new java.awt.Color(249, 246, 242));
@@ -95,11 +96,8 @@ public class registerform extends javax.swing.JFrame {
         });
         getContentPane().add(bk, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, -1, -1));
 
-        msg1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        msg1.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(msg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 179, 30));
-
         fpanel.setBackground(new java.awt.Color(0, 0, 84));
+        fpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(249, 246, 242));
 
@@ -211,55 +209,47 @@ public class registerform extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout fpanelLayout = new javax.swing.GroupLayout(fpanel);
-        fpanel.setLayout(fpanelLayout);
-        fpanelLayout.setHorizontalGroup(
-            fpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fpanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        fpanelLayout.setVerticalGroup(
-            fpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fpanelLayout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
-        );
+        fpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 66, -1, -1));
+
+        msg1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        msg1.setForeground(new java.awt.Color(255, 255, 255));
+        fpanel.add(msg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 179, 30));
 
         getContentPane().add(fpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 450));
+
+        jButton2.setText("jButton2");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActionPerformed
-
-String fullname = fn.getText();
-String email = eadd.getText();
+String fullname = fn.getText().trim();
+String email = eadd.getText().trim();
 String region = comr.getSelectedItem().toString();
-String pass = ps.getText();
-String confirm = cps.getText();
+String pass = new String(ps.getPassword()).trim();
+String confirm = new String(cps.getPassword()).trim();
 
-if (fullname.equals("") || email.equals("")
-        || region.equals("") || pass.equals("")
-        || confirm.equals("")){
-    
-    msg1.setText("Please fill all fields!");
-    msg1.setForeground(Color.red);
-}else if (!pass.equals(confirm)){
-    
-    msg1.setText("Password do not match!");
-    msg1.setForeground(Color.orange);
-         
-}else if (!male.isSelected() && !fmale.isSelected()){
- msg1.setText("Please select your gender!");
- msg1.setForeground(Color.yellow);
-}else {
-    dashboard d = new   dashboard();
-this.dispose();
-d.setVisible(true);
+if (fullname.isEmpty() || email.isEmpty() || pass.isEmpty() || confirm.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
+    return;
+}
 
-    
+if (!email.contains("@") || !email.contains(".")) {
+    JOptionPane.showMessageDialog(this, "Please enter a valid email address!", "Warning", JOptionPane.WARNING_MESSAGE);
+    return;
+}
+
+if (!male.isSelected() && !fmale.isSelected()) {
+    JOptionPane.showMessageDialog(this, "Please select your gender!", "Warning", JOptionPane.WARNING_MESSAGE);
+    return;
+}
+
+if (!pass.equals(confirm)) {
+    JOptionPane.showMessageDialog(this, "Passwords do not match!", "Error", JOptionPane.ERROR_MESSAGE);
+    cps.setText("");
+    cps.requestFocus();
+    return;
 }
     }//GEN-LAST:event_subActionPerformed
 
@@ -268,7 +258,7 @@ loginform l = new loginform();
 this.dispose();
 l.setVisible(true);
 
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_bkActionPerformed
 
     /**
@@ -315,6 +305,7 @@ l.setVisible(true);
     private javax.swing.JRadioButton fmale;
     private javax.swing.JTextField fn;
     private javax.swing.JPanel fpanel;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

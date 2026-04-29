@@ -31,35 +31,25 @@ public class dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        wel = new javax.swing.JLabel();
-        bsr = new javax.swing.JButton();
+        fpanel = new javax.swing.JPanel();
         bmg = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        bsr = new javax.swing.JButton();
+        wel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
         msg2 = new javax.swing.JLabel();
-        fpanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 84));
         setPreferredSize(new java.awt.Dimension(500, 410));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(249, 246, 242));
-        jPanel1.setPreferredSize(new java.awt.Dimension(260, 70));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setForeground(new java.awt.Color(0, 0, 84));
-        jLabel4.setText("Total Rooms  :  50");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 25, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 280, 70));
 
         jLabel1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(201, 168, 76));
@@ -68,24 +58,11 @@ public class dashboard extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Managment System");
+        jLabel2.setText("Management System");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 46, -1, -1));
 
-        wel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        wel.setForeground(new java.awt.Color(255, 255, 255));
-        wel.setText("Welcom, Admin !");
-        getContentPane().add(wel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 140, 30));
-
-        bsr.setBackground(new java.awt.Color(249, 246, 242));
-        bsr.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        bsr.setForeground(new java.awt.Color(0, 0, 84));
-        bsr.setText("Show Rooms");
-        bsr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsrActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 160, -1));
+        fpanel.setBackground(new java.awt.Color(0, 0, 84));
+        fpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bmg.setBackground(new java.awt.Color(249, 246, 242));
         bmg.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -96,17 +73,33 @@ public class dashboard extends javax.swing.JFrame {
                 bmgActionPerformed(evt);
             }
         });
-        getContentPane().add(bmg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        fpanel.add(bmg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(249, 246, 242));
-        jPanel2.setPreferredSize(new java.awt.Dimension(260, 70));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        bsr.setBackground(new java.awt.Color(249, 246, 242));
+        bsr.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        bsr.setForeground(new java.awt.Color(0, 0, 84));
+        bsr.setText("Show Rooms");
+        bsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsrActionPerformed(evt);
+            }
+        });
+        fpanel.add(bsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 160, -1));
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 84));
-        jLabel5.setText("Availabel  :  30");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 34, -1, -1));
+        wel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        wel.setForeground(new java.awt.Color(255, 255, 255));
+        wel.setText("Welcome, Admin !");
+        fpanel.add(wel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 150, 20));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 280, 70));
+        jPanel1.setBackground(new java.awt.Color(249, 246, 242));
+        jPanel1.setPreferredSize(new java.awt.Dimension(260, 70));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 84));
+        jLabel4.setText("Total Rooms  :  50");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        fpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 170, 50));
 
         jPanel3.setBackground(new java.awt.Color(249, 246, 242));
         jPanel3.setPreferredSize(new java.awt.Dimension(260, 70));
@@ -114,9 +107,19 @@ public class dashboard extends javax.swing.JFrame {
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 84));
         jLabel6.setText("Occupied  :  20");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 20));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 280, -1));
+        fpanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 170, 50));
+
+        jPanel2.setBackground(new java.awt.Color(249, 246, 242));
+        jPanel2.setPreferredSize(new java.awt.Dimension(260, 70));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 84));
+        jLabel5.setText("Available :  30");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        fpanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 170, 50));
 
         exit.setBackground(new java.awt.Color(249, 246, 242));
         exit.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -127,12 +130,11 @@ public class dashboard extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 160, -1));
+        fpanel.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 160, -1));
 
         msg2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        getContentPane().add(msg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 240, 30));
+        fpanel.add(msg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 240, 30));
 
-        fpanel.setBackground(new java.awt.Color(0, 0, 84));
         getContentPane().add(fpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 450));
 
         pack();

@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package hotel.management.system;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import hotel.management.system.dashboard;
 import hotel.management.system.registerform;
 import java.awt.Color;
@@ -20,6 +21,17 @@ public class loginform extends javax.swing.JFrame {
      */
     public loginform() {
         initComponents();
+        
+        msg.setText("");
+
+un.setText("Enter username");
+ps.setText("Enter password");
+ps.setEchoChar((char) 0);
+
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+LocalDateTime now = LocalDateTime.now();
+date.setText(now.format(dtf));
+      
         msg.setText("");
         
      fpanel.setBackground(new java.awt.Color(0,0,84));
@@ -44,8 +56,10 @@ public class loginform extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        msg = new javax.swing.JLabel();
+        fpanel = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         un = new javax.swing.JTextField();
         ps = new javax.swing.JPasswordField();
@@ -53,30 +67,51 @@ public class loginform extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         bl = new javax.swing.JButton();
         br = new javax.swing.JButton();
-        msg = new javax.swing.JLabel();
-        fpanel = new javax.swing.JPanel();
+        shpass = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 84));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("  Management  System");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 44, -1, -1));
+        msg.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        msg.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 255, 32));
 
-        jLabel4.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(201, 168, 76));
-        jLabel4.setText("Grand Millennium Hotel");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 6, -1, -1));
+        fpanel.setBackground(new java.awt.Color(0, 0, 84));
+        fpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/management/system/Screenshot 2026-04-29 204035.png"))); // NOI18N
+        fpanel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, 60));
+
+        date.setForeground(new java.awt.Color(249, 246, 242));
+        date.setText("Date Time");
+        fpanel.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 70, -1));
 
         jPanel2.setBackground(new java.awt.Color(249, 246, 242));
 
         un.setBackground(new java.awt.Color(249, 246, 242));
         un.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        un.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                unFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                unFocusLost(evt);
+            }
+        });
 
         ps.setBackground(new java.awt.Color(249, 246, 242));
         ps.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ps.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                psFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                psFocusLost(evt);
+            }
+        });
         ps.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 psActionPerformed(evt);
@@ -111,61 +146,65 @@ public class loginform extends javax.swing.JFrame {
             }
         });
 
+        shpass.setText("Show Password");
+        shpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shpassActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(un, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                    .addComponent(ps))
-                .addContainerGap(129, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(39, 39, 39)
                 .addComponent(br, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(bl, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                .addGap(51, 51, 51))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addComponent(un, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                        .addComponent(ps))
+                    .addComponent(shpass, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(9, 9, 9)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(un, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ps, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
+                .addComponent(shpass)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(br)
-                    .addComponent(bl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                    .addComponent(bl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(br))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 390, 320));
+        fpanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
-        msg.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        msg.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 255, 32));
+        jLabel1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("  Management  System");
+        fpanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
 
-        fpanel.setBackground(new java.awt.Color(0, 0, 84));
-
-        javax.swing.GroupLayout fpanelLayout = new javax.swing.GroupLayout(fpanel);
-        fpanel.setLayout(fpanelLayout);
-        fpanelLayout.setHorizontalGroup(
-            fpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-        fpanelLayout.setVerticalGroup(
-            fpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
+        jLabel4.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(201, 168, 76));
+        jLabel4.setText("Grand Millennium Hotel");
+        fpanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         getContentPane().add(fpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 450));
 
@@ -177,73 +216,72 @@ public class loginform extends javax.swing.JFrame {
     }//GEN-LAST:event_psActionPerformed
 
     private void brActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brActionPerformed
-              String user =un.getText();
-String pass = ps.getText();
 
-    
-    if(user.isEmpty() || pass.isEmpty()){
-        JOptionPane.showMessageDialog(this, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-
-   
-    if(user.equals("Bavyan") && pass.equals("B123")){
-        JOptionPane.showMessageDialog(this, "Login Successful!");
-
-        registerform r = new registerform();
-        this.dispose();
-        r.setVisible(true);
-    }
-
-   
-    else if(!user.equals("Bavyan")){
-        JOptionPane.showMessageDialog(this, "Wrong Username!", "Error", JOptionPane.ERROR_MESSAGE);
-    }
-
- 
-    else{
-        JOptionPane.showMessageDialog(this, "Wrong Password!", "Error", JOptionPane.ERROR_MESSAGE);
-    
-
-}
-// TODO add your handling code here:
+     registerform r = new registerform();
+this.dispose();
+r.setVisible(true);
     }//GEN-LAST:event_brActionPerformed
 
     private void blActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blActionPerformed
-        String user =un.getText();
+String user = un.getText().trim();
+String pass = new String(ps.getPassword()).trim();
 
-String pass = ps.getText();
+if (user.equals("Enter username") || pass.equals("Enter password") || user.isEmpty() || pass.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
+    return;
+}
 
-   
-    if(user.isEmpty() || pass.isEmpty()){
-        JOptionPane.showMessageDialog(this, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
-        return;
-    }
+if (user.equals("Bavyan") && pass.equals("B123")) {
+    JOptionPane.showMessageDialog(this, "Login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
-   
-    if(user.equals("Bavyan") && pass.equals("B123")){
-        JOptionPane.showMessageDialog(this, "Login Successful!");
-
-        dashboard r = new dashboard(); 
-        this.dispose();
-        r.setVisible(true);
-    }
-
-  
-    else if(!user.equals("Bavyan")){
-        JOptionPane.showMessageDialog(this, "Wrong Username!", "Error", JOptionPane.ERROR_MESSAGE);
-    }
-
+    dashboard d = new dashboard();
+    this.dispose();
+    d.setVisible(true);
     
-    else{
-        JOptionPane.showMessageDialog(this, "Wrong Password!", "Error", JOptionPane.ERROR_MESSAGE);
     
-         
+} else {
+    JOptionPane.showMessageDialog(this, "Username or Password Incorrect!", "Error", JOptionPane.ERROR_MESSAGE);
+    ps.setText("");
     
-
+    ps.requestFocus();
+ 
 }
  
     }//GEN-LAST:event_blActionPerformed
+
+    private void shpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shpassActionPerformed
+        if (shpass.isSelected()) {
+    ps.setEchoChar((char) 0);
+} else {
+    ps.setEchoChar('*');
+}
+    }//GEN-LAST:event_shpassActionPerformed
+
+    private void unFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_unFocusGained
+        if (un.getText().equals("Enter username")) {
+    un.setText("");
+}
+    }//GEN-LAST:event_unFocusGained
+
+    private void unFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_unFocusLost
+        if (un.getText().isEmpty()) {
+    un.setText("Enter username");
+}
+    }//GEN-LAST:event_unFocusLost
+
+    private void psFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_psFocusGained
+if (new String(ps.getPassword()).equals("Enter password")) {
+    ps.setText("");
+    ps.setEchoChar('*');
+}        
+    }//GEN-LAST:event_psFocusGained
+
+    private void psFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_psFocusLost
+        if (new String(ps.getPassword()).isEmpty()) {
+    ps.setText("Enter password");
+    ps.setEchoChar((char) 0);
+}
+    }//GEN-LAST:event_psFocusLost
 
     /**
      * @param args the command line arguments
@@ -283,14 +321,17 @@ String pass = ps.getText();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bl;
     private javax.swing.JButton br;
+    private javax.swing.JLabel date;
     private javax.swing.JPanel fpanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel logo;
     private javax.swing.JLabel msg;
     private javax.swing.JPasswordField ps;
+    private javax.swing.JCheckBox shpass;
     private javax.swing.JTextField un;
     // End of variables declaration//GEN-END:variables
 }
